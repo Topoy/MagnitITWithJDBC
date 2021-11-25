@@ -30,6 +30,10 @@ public class Main {
     }
 
     private static void fillTestContent(Statement statement, int fieldsNumber) throws SQLException {
+        if (fieldsNumber <= 0) {
+            System.out.println("Fields number is not correct. Number must be more than 0");
+            return;
+        }
         for (int i = 0; i < fieldsNumber; i++) {
             statement.executeUpdate("insert into test (field) values (" + (i + 1) + ");");
         }
